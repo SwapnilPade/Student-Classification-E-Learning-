@@ -18,37 +18,37 @@ This paper discusses how K-Nearest Neighbour (KNN), Support Vector Machine (SVM)
 # Methodology
 # Data Preprocessing for Kalboard 360
 For data processing, firstly, look at the correlation between numerical features to get basic intuitions. Secondly, one-hot encoding of the categorical features makes it easier to be analysed. Thirdly, we can select the important features by applying supervised learning methods to build the prediction models and using feature ranking functions provided by some models. One limitation of our approach is that sequential encoding (e.g.: 1,2,3) may distort the algorithms which rely on the calculation of distances such as KNN.
+With respect to the above methodology, a gridsearch was used to find the best hyperparameters. A 5-fold cross validation was used in this search process.
+
 # Techniques for Parent school satisfaction prediction
 We will verify three supervised learning methods that are mentioned in our literature reviews to address this problem Here is the methodology descriptions of them:
+
 # KNeighborsClassifier
 The KNeighborsClassifier(KNC) is an example of a classifier that makes use of k- nearest-neighbour techniques. The majority of a node's neighbours will determine its classification. These nodes' classes are determined by the class that is most frequent among their k nearest neighbours. Tuning n neighbours, weights, and metrics are typical hyperparameters for KNC. The size of K is equal to N neighbours. Uniform weighting assigns equal importance to each neighbouring point and distance weighting gives more weight to those points that are physically closer to the centre of the network. The term "metric" is used to describe the various systems used to calculate distance, such as the Minkowski, Euclidean, and Manhattan systems.
+For KNN, the following hyperparameters were tried: n_neighbors (5,7,10,15), weights (uniform, distance), metric (cityblock, cosine, euclidean). It was found that the best hyperparameters were 15 n_neighbours, a uniform weighting for distances, and using the cityblock method for distance measurements.
+
+KNN Confusion matrix for 20 % Kalboard 360 test data for class prediction
+
+![image](https://user-images.githubusercontent.com/127405318/225853851-48e0f316-5d66-4b19-b9b2-0d83c88d2b4d.png)
+
 # LogisticRegression
 Logistic Regression is most frequently applied to "binary classification" issues. However, it may also be utilized for multi- class classification using particular techniques such as one-vs.-rest or cross- entropy loss. Typical LR hyperparameters include penalty, C, solver, and max iter. The purpose of the penalty is to lessen the overfitting issue; however, some penalties may not be compatible with all solvers. C controls the severity of the punishment. . olver is the method of optimization. Max_iter limits the number of solver iterations.
-7
-# Support Vector Classifier
-The SVC classifier utilizes the Support Vector Machine (SVM) algorithm. SVM's mechanism is to identify the superplane that best differentiates between two classes. SVM approaches multi-class classification similarly to logistic regression, such as one-versus- rest or one-versus-one. By utilizing kernel functions, SVM can also be expanded to address nonlinear classification problems. To tune the SVC hyperparameters, C, gamma, and kernel must be considered. C is still inversely proportional to the regularisation's strength. Gamma refers to the coefficient of the kernel. Kernel identifies the type of kernel utilized by the method.
-# Hypertuning parameters for optimization
-With respect to the above methodology, a gridsearch was used to find the best hyperparameters. A 5-fold cross validation was used in this search process.
-# KNN
-For KNN, the following hyperparameters were tried: n_neighbors (5,7,10,15), weights (uniform, distance), metric (cityblock, cosine, euclidean). It was found that the best hyperparameters were 15 n_neighbours, a uniform weighting for distances, and using the cityblock method for distance measurements.
-# Logistic Regression
 For Logistic Regression, the following hyperparameters were tried:C (0.9,1,1.1), penalty (uniform, distance), solver (lbfgs, liblinear, newton-cg). It was found that the best hyperparameters were a C value of 1.1, a L1 penalty type, and the liblinear solver.
-# SVM
-For SVM, the following hyperparameters were tried: C (0.9,1,1.1), gamma (scale, auto), kernel (linear, poly, rbf, sigmoid). It was found that the best hyperparameters were a C value of 0.9, scaled for gamma, and the linear kernel.
-# Ensemble model for student categorization
-We perform the student categorization by classifying them into three categories, i.e Low, Medium and High using Logistic Regression, Support Vector Machine and KNN algorithms and analyse the efficiency of the algorithm by dividing the dataset into train and test datasets. The hyperparameters are kept same as in the previous problem. Furthermore, we also look at an ensemble of the three models for the same problem. For this, we refer to the Kaggle notebook by Mohd. Ashfaq. We split the data into 20% test and 80% train datasets.
 
 LR Confusion matrix for 20 % Kalboard 360 test data for class prediction
 
 ![image](https://user-images.githubusercontent.com/127405318/225853775-eebcb83e-07f5-4857-8ed8-bd10ccc1fbc9.png)
 
+# Support Vector Classifier
+The SVC classifier utilizes the Support Vector Machine (SVM) algorithm. SVM's mechanism is to identify the superplane that best differentiates between two classes. SVM approaches multi-class classification similarly to logistic regression, such as one-versus- rest or one-versus-one. By utilizing kernel functions, SVM can also be expanded to address nonlinear classification problems. To tune the SVC hyperparameters, C, gamma, and kernel must be considered. C is still inversely proportional to the regularisation's strength. Gamma refers to the coefficient of the kernel. Kernel identifies the type of kernel utilized by the method.
+For SVM, the following hyperparameters were tried: C (0.9,1,1.1), gamma (scale, auto), kernel (linear, poly, rbf, sigmoid). It was found that the best hyperparameters were a C value of 0.9, scaled for gamma, and the linear kernel.
+
 SVC Confusion matrix for 20 % Kalboard 360 test data for class prediction
 
 ![image](https://user-images.githubusercontent.com/127405318/225853822-c436af65-5197-4e5c-a2f5-8ded73249f00.png)
 
-KNN Confusion matrix for 20 % Kalboard 360 test data for class prediction
-
-![image](https://user-images.githubusercontent.com/127405318/225853851-48e0f316-5d66-4b19-b9b2-0d83c88d2b4d.png)
+# Ensemble model for student categorization
+We perform the student categorization by classifying them into three categories, i.e Low, Medium and High using Logistic Regression, Support Vector Machine and KNN algorithms and analyse the efficiency of the algorithm by dividing the dataset into train and test datasets. The hyperparameters are kept same as in the previous problem. Furthermore, we also look at an ensemble of the three models for the same problem. For this, we refer to the Kaggle notebook by Mohd. Ashfaq. We split the data into 20% test and 80% train datasets.
 
 Ensemble model Confusion matrix for 20 % Kalboard 360 test data for class prediction
 
