@@ -57,3 +57,5 @@ Ensemble model Confusion matrix for 20 % Kalboard 360 test data for class predic
 # Results
 For the first problem of prediction of parent school satisfaction, we have the mean test scores from the cross validation for the top parameters are 0.677 for KNN, 1.00 for SVM, 1.00 for logistic regression.
 For the student categorization problem, we have an accuracy of 71.88% for KNN model, 98.96% for the logistic regression, and 100% for the Support Vector based Classifier. Also, we have an accuracy of 98.96% for an ensemble of the three.
+
+#Link to the Dataset - https://www.kaggle.com/datasets/aljarah/xAPI-Edu-Data
