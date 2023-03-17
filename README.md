@@ -39,15 +39,19 @@ For SVM, the following hyperparameters were tried: C (0.9,1,1.1), gamma (scale, 
 We perform the student categorization by classifying them into three categories, i.e Low, Medium and High using Logistic Regression, Support Vector Machine and KNN algorithms and analyse the efficiency of the algorithm by dividing the dataset into train and test datasets. The hyperparameters are kept same as in the previous problem. Furthermore, we also look at an ensemble of the three models for the same problem. For this, we refer to the Kaggle notebook by Mohd. Ashfaq. We split the data into 20% test and 80% train datasets.
 
 LR Confusion matrix for 20 % Kalboard 360 test data for class prediction
+
 ![image](https://user-images.githubusercontent.com/127405318/225853775-eebcb83e-07f5-4857-8ed8-bd10ccc1fbc9.png)
 
 SVC Confusion matrix for 20 % Kalboard 360 test data for class prediction
+
 ![image](https://user-images.githubusercontent.com/127405318/225853822-c436af65-5197-4e5c-a2f5-8ded73249f00.png)
 
 KNN Confusion matrix for 20 % Kalboard 360 test data for class prediction
+
 ![image](https://user-images.githubusercontent.com/127405318/225853851-48e0f316-5d66-4b19-b9b2-0d83c88d2b4d.png)
 
 Ensemble model Confusion matrix for 20 % Kalboard 360 test data for class prediction
+
 ![image](https://user-images.githubusercontent.com/127405318/225853889-27f003c4-3d8e-4550-962a-81c00b76e280.png)
 
 # Results
